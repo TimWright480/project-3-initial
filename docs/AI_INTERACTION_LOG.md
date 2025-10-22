@@ -7,7 +7,7 @@ ChatGPT was used for this
 
 ## 1. Is in the example streams package
 
-## 2. Check if the test works using the GentlyDownTheStreamTest class 
+## 2. Check if the test works using the GentlyDownTheStreamTest class
 
 19 test passed
 

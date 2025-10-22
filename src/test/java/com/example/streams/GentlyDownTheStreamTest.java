@@ -215,50 +215,6 @@ class GentlyDownTheStreamTest {
             }).isInstanceOf(InvalidDataException.class);
         }
     }
-
-    @Nested
-    @DisplayName("Edge Case Tests")
-    class EdgeCaseTests {
-
-        @Test
-        @DisplayName("Should handle collections with fewer than requested elements")
-        void shouldHandleFewerElementsThanRequested() {
-            // Test behavior when requesting top 10 from a list with < 10 elements
-            // Implementation should handle this gracefully
-        }
-
-        @Test
-        @DisplayName("Should handle collections with null elements")
-        void shouldHandleNullElements() {
-            // Test filtering out null elements in streams
-            // Demonstrates robust null handling
-        }
-
-        @Test
-        @DisplayName("Should handle all even numbers in odd filter")
-        void shouldHandleAllEvenNumbers() {
-            // Test case where no odd numbers exist
-            // Should return empty list, not throw exception
-        }
-    }
-
-
-    @Nested
-    @DisplayName("Performance and Advanced Features")
-    class AdvancedFeatureTests {
-
-        @Test
-        @DisplayName("Should maintain type safety with generics")
-        void shouldMaintainTypeSafety() {
-            // Demonstrates proper generic usage
-            // Type safety should be maintained throughout operations
-        }
-
-        @Test
-        @DisplayName("Should use proper functional interfaces")
-        void shouldUseProperFunctionalInterfaces() {
-            // Test demonstrates proper lambda and method reference usage
-            // Validates functional programming concepts
-        }
-    }
 }
+
+

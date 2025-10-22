@@ -10,7 +10,7 @@ With using AI, it was giving a couple of option is new to me. The first option t
 sortedfruits method. It starts to narrow down the code to only the need block and not the entire code in a class. Then the test worked.
 
 Then the test passed on my second try but fixing errors is more time-consuming because of the different options
-to fix the code
+to fix the code.
 
 AI is still great at fixing codes to get it to run in a very fast matter and to learn how it works but also asking questions.
 
