@@ -23,81 +23,164 @@ public class GentlyDownTheStream {
                 .collect(Collectors.toList());
     }
 
-    /**
-     * Example method showing proper exception handling and validation
-     * Returns a sorted list of fruits with comprehensive error checking
-     */
+    /** ✅ Return a sorted list of fruits */
     public List<String> sortedFruits() throws InvalidDataException {
         try {
             validateCollection(fruits, "Fruits collection");
 
             return fruits.stream()
-                    .filter(Objects::nonNull) // Handle potential null elements
+                    .filter(Objects::nonNull)
                     .sorted()
                     .collect(Collectors.toList());
+        } catch (EmptyCollectionException | IllegalArgumentException e) {
+            throw e; // expected by tests
         } catch (Exception e) {
-            throw new InvalidDataException("Failed to sort fruits: " + e.getMessage());
+            throw new InvalidDataException("Failed to sort fruits: " + e.getMessage(), e);
         }
     }
 
-    /**
-     * Enhanced version with custom predicate and exception handling
-     */
+    /** ✅ Return a sorted list of fruits excluding those starting with 'A' */
     public List<String> sortedFruitsException() throws InvalidDataException {
-        return sortedFruitsWithFilter(fruit -> !fruit.startsWith("A"));
+        try {
+            validateCollection(fruits, "Fruits collection");
+            return fruits.stream()
+                    .filter(Objects::nonNull)
+                    .filter(f -> !f.startsWith("A"))
+                    .sorted()
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new InvalidDataException("Failed to sort fruits excluding 'A': " + e.getMessage());
+        }
     }
 
-    // TODO - return a list with the first 2 elements of a sorted list of fruits
-    // Add proper validation and exception handling
+    /** ✅ Return the first 2 elements of a sorted fruit list */
     public List<String> sortedFruitsFirstTwo() throws InvalidDataException {
-        // Implement with validation, null checks, and exception handling
-        return null;
+        try {
+            validateCollection(fruits, "Fruits collection");
+
+            return fruits.stream()
+                    .filter(Objects::nonNull)
+                    .sorted()
+                    .limit(2)
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new InvalidDataException("Failed to get first two sorted fruits: " + e.getMessage());
+        }
     }
 
-    // TODO - return a comma separated String of sorted fruits
-    // Handle null values and empty results gracefully
+    /** ✅ Return a comma-separated String of sorted fruits */
     public String commaSeparatedListOfFruits() throws InvalidDataException {
-        // Implement with proper string joining and validation
-        return null;
+        try {
+            validateCollection(fruits, "Fruits collection");
+
+            String result = fruits.stream()
+                    .filter(Objects::nonNull)
+                    .sorted()
+                    .collect(Collectors.joining(", "));
+
+            if (result.isEmpty()) {
+                throw new EmptyCollectionException("No fruits to join");
+            }
+            return result;
+        } catch (Exception e) {
+            throw new InvalidDataException("Failed to create comma-separated list: " + e.getMessage());
+        }
     }
 
-    // TODO - return a list of veggies sorted in reverse (descending) order
-    // Use Comparator.reverseOrder() and handle edge cases
+    /** ✅ Return a list of veggies sorted in reverse order */
     public List<String> reverseSortedVeggies() throws InvalidDataException {
-        return null;
+        try {
+            validateCollection(veggies, "Veggies collection");
+
+            return veggies.stream()
+                    .filter(Objects::nonNull)
+                    .sorted(Comparator.reverseOrder())
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new InvalidDataException("Failed to reverse sort veggies: " + e.getMessage());
+        }
     }
 
-    // TODO - return a list of veggies sorted in reverse order, all in upper case
-    // Chain multiple stream operations with proper exception handling
+    /** ✅ Return a list of veggies sorted in reverse order and upper case */
     public List<String> reverseSortedVeggiesInUpperCase() throws InvalidDataException {
-        return null;
+        try {
+            validateCollection(veggies, "Veggies collection");
+
+            return veggies.stream()
+                    .filter(Objects::nonNull)
+                    .map(String::toUpperCase)
+                    .sorted(Comparator.reverseOrder())
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new InvalidDataException("Failed to reverse sort veggies in upper case: " + e.getMessage());
+        }
     }
 
-    // TODO - return a list of the top 10 values in the list of random integers
-    // Handle cases where list has fewer than 10 elements
+    /** ✅ Return the top 10 values from random integers */
     public List<Integer> topTen() throws InvalidDataException {
-        return null;
+        try {
+            validateCollection(integerValues, "Integer values");
+
+            return integerValues.stream()
+                    .filter(Objects::nonNull)
+                    .sorted(Comparator.reverseOrder())
+                    .limit(10)
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new InvalidDataException("Failed to get top 10 values: " + e.getMessage());
+        }
     }
 
-    // TODO - return a list of the top 10 unique values in the list of random integers
-    // Use distinct() operation and handle empty results
+    /** ✅ Return the top 10 unique values from random integers */
     public List<Integer> topTenUnique() throws InvalidDataException {
-        return null;
+        try {
+            validateCollection(integerValues, "Integer values");
+
+            return integerValues.stream()
+                    .filter(Objects::nonNull)
+                    .distinct()
+                    .sorted(Comparator.reverseOrder())
+                    .limit(10)
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new InvalidDataException("Failed to get top 10 unique values: " + e.getMessage());
+        }
     }
 
-    // TODO - return a list of the top 10 unique values that are odd
-    // Combine filtering, distinct, and limiting operations
+    /** ✅ Return the top 10 unique odd values */
     public List<Integer> topTenUniqueOdd() throws InvalidDataException {
-        return null;
+        try {
+            validateCollection(integerValues, "Integer values");
+
+            return integerValues.stream()
+                    .filter(Objects::nonNull)
+                    .filter(n -> n % 2 != 0)
+                    .distinct()
+                    .sorted(Comparator.reverseOrder())
+                    .limit(10)
+                    .collect(Collectors.toList());
+        } catch (Exception e) {
+            throw new InvalidDataException("Failed to get top 10 unique odd values: " + e.getMessage());
+        }
     }
 
-    // TODO - return the average of all random numbers
-    // Handle potential OptionalDouble and division by zero scenarios
+    /** ✅ Return average of all random integers */
     public Double average() throws InvalidDataException {
-        return null;
+        try {
+            validateCollection(integerValues, "Integer values");
+
+            OptionalDouble avg = safeAverage(integerValues);
+            if (avg.isEmpty()) {
+                throw new EmptyCollectionException("Cannot compute average of empty list");
+            }
+            return avg.getAsDouble();
+        } catch (Exception e) {
+            throw new InvalidDataException("Failed to calculate average: " + e.getMessage());
+        }
     }
 
-    // Generic method for safe collection operations
+    // ---------- Utility / Helper Methods ----------
+
     private <T> void validateCollection(Collection<T> collection, String collectionName) throws EmptyCollectionException {
         if (collection == null) {
             throw new IllegalArgumentException(collectionName + " cannot be null");
@@ -107,7 +190,6 @@ public class GentlyDownTheStream {
         }
     }
 
-    // Helper method demonstrating advanced generics and functional programming
     private <T> List<T> sortedWithFilter(Collection<T> collection,
                                          Predicate<T> filter,
                                          Comparator<T> comparator) throws InvalidDataException {
@@ -124,12 +206,10 @@ public class GentlyDownTheStream {
         }
     }
 
-    // Specialized method using the generic helper
     private List<String> sortedFruitsWithFilter(Predicate<String> filter) throws InvalidDataException {
         return sortedWithFilter(fruits, filter, String::compareTo);
     }
 
-    // Utility method for safe integer operations
     private OptionalDouble safeAverage(Collection<Integer> numbers) {
         return numbers.stream()
                 .filter(Objects::nonNull)
