@@ -6,7 +6,7 @@ import java.util.stream.Collectors;
 
 /**
  * Enhanced coding kata on the Stream API with exception handling, generics, and advanced concepts.
- * All methods include proper validation and can be completed with a single return statement plus validation.
+ * All methods include proper validation and can be completed with a single return statement plus validation..
  */
 public class GentlyDownTheStream {
 

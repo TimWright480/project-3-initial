@@ -41,7 +41,7 @@ class GentlyDownTheStreamTest {
         }
 
         @Test
-        @DisplayName("Should sort fruits excluding those starting with 'A'")
+        @DisplayName("Should sort fruits excluding those starting with 'A'.")
         void sortedFruitsException() {
             List<String> expected = stream.fruits.stream()
                     .filter(x -> !x.startsWith("A"))

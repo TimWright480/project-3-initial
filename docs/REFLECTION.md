@@ -6,7 +6,7 @@ The GentlyDownTheStreamTest test class has to be left alone as is. Making adjust
 handling fails. This code passes all the test now. Since this is only about test, having a main method class is not used for this. With the code generated
 for the TODO list, it wasn't perfect. With that code, the test failed the first time.
 
-With using AI, it was giving a couple of option is new to me. The first option to change the catch blocks to rethrow exceptions directly in the
+With using AI, the result was giving a couple of option is new to me. The first option to change the catch blocks to rethrow exceptions directly in the
 sortedfruits method. It starts to narrow down the code to only the need block and not the entire code in a class. Then the test worked.
 
 Then the test passed on my second try but fixing errors is more time-consuming because of the different options

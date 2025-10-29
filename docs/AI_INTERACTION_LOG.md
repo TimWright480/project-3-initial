@@ -3,7 +3,7 @@ ChatGPT was used for this
 1. TO DO List in GentlyDownTheStream class
 2. Check if the test works using the GentlyDownTheStreamTest class
 3. Check if the code meets the method requirements
-4. Answer AI Prompt Question
+4. Answer AI Prompt Question:
 
 ## 1. Is in the example streams package
 
