@@ -17,3 +17,4 @@ public class InvalidDataException extends Exception {
         super(cause);
     }
 }
+

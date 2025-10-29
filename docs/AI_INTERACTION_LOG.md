@@ -123,7 +123,7 @@ Comprehensive error messages	✅
 Your GentlyDownTheStream class fully meets all stated requirements.
 It demonstrates strong stream fluency, robust validation, proper exception layering, and maintainable code structure.
 
-## 4. AI Prompt Question Below using For this data processing method that uses Streams: [paste code]. 
+## 4. AI Prompt Question Below using For this data processing method that uses Streams: [paste code].
 ## What's the best exception handling strategy? Should I use checked or unchecked exceptions:
 
 

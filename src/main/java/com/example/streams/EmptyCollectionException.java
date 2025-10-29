@@ -17,3 +17,4 @@ public class EmptyCollectionException extends RuntimeException {
         super(cause);
     }
 }
+

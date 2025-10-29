@@ -14,4 +14,3 @@ to fix the code.
 
 AI is still great at fixing codes to get it to run in a very fast matter and to learn how it works but also asking questions.
 
-I
